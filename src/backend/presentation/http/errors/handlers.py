@@ -126,6 +126,10 @@ async def handle_unexpected_exception(
         "Unhandled exception while processing %s %s",
         request.method,
         request.url.path,
+        extra={
+            "method": request.method,
+            "path": request.url.path,
+        },
         exc_info=(
             type(exception),
             exception,
